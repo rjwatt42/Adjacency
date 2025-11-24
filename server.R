@@ -1,6 +1,7 @@
 
 source("Lines.R")
 source('basicPlot.R')
+library('ggplot2')
 
 server <- function(input, output) {
   
