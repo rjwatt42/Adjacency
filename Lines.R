@@ -32,14 +32,14 @@ makeLines<-function(nlines=9,lineLength=0.2,lineWidth=1,lineCol='#000',
   # random additions
   if (rLines) {
     if (is.null(braw.env$rlines) || forceUpdate) {
-      rlinesX<-linesX[1:(nlines-1)]+runif(nlines-1,rlineMargin,1-rlineMargin)*diff(linesX[1:2])
-      rlinesY<-c(-1,1)*rlineLength/2-rlineOffset*lineLength
-      braw.env$rlines<<-list(rlinesX=rlinesX,rlinesY=rlinesY)
+      randX<-runif(nlines-1,0,1)
     } else {
-      rlinesX<-braw.env$rlines$rlinesX
-      rlinesY<-braw.env$rlines$rlinesY
+      randX<-braw.env$rlines$randX
     }
-  for (i in 1:(nlines-1)) {
+    rlinesX<-linesX[1:(nlines-1)]+(randX*(1-rlineMargin*2)+rlineMargin)*diff(linesX[1:2])
+    rlinesY<-c(-1,1)*rlineLength/2+rlineOffset*lineLength
+    braw.env$rlines<<-list(rlinesX=rlinesX,rlinesY=rlinesY,randX=randX)
+    for (i in 1:(nlines-1)) {
     g<-addG(g,dataLine(data.frame(x=rlinesX[i],y=rlinesY),linewidth=rlineWidth/0.015, colour=rlineCol))
   }
   }

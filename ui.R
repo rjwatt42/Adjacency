@@ -83,7 +83,7 @@ ui <- fluidPage(
                              ),
                              tags$tr(
                                tags$td(width = "30%", tags$div(style=localStyle,"offset:")),
-                               tags$td(width = "70%", numericInput("rlineOffset", NULL, min = -1, max = 1, step = 0.1, value = 0))
+                               tags$td(width = "70%", numericInput("rlineOffset", NULL, min = -2, max = 2, step = 0.1, value = 0))
                              )
                   )
         ),
