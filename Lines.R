@@ -6,7 +6,7 @@ makeLines<-function(nlines=9,lineLength=0.2,lineWidth=1,lineCol='#000',
                     ) {
   
   limits<-c(-1,1)*1.2
-  if (!exists('braw.env') || ia.null(braw.env$plotLimits)) {
+  if (!exists('braw.env') || is.null(braw.env$plotLimits)) {
   if (useHTML) initHTML(gsize=400,xlim=limits,ylim=limits)
   else initPlot(xlim=limits,ylim=limits)
   }
