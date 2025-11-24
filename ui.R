@@ -1,5 +1,6 @@
 fontSize=10
 localStyle=paste0("font-size:",format(fontSize) ,"pt;text-align: right;padding:0px;margin:0px;margin-right:5px;")
+colourChoices=list("black","white","red","green","blue","yellow")
 
 ui <- fluidPage(
   
@@ -41,7 +42,7 @@ ui <- fluidPage(
     
     # Sidebar panel for inputs ----
     sidebarPanel(
-      style = paste("background: ",'#aaa',';width:200px',";margin-left: 0px;margin-right: -21px;margin-top: 12px;padding-right: -21px;border:solid;border-radius:0px;"),
+      style = paste("background: ",'#aaa',';width:200px',";margin-left: 0px;margin-right: -21px;margin-top: 12px;padding-right: -21px;border-radius:0px;"),
       # Input: 
       verticalLayout(
         wellPanel(h4("Regular Lines"),
@@ -56,7 +57,8 @@ ui <- fluidPage(
                              ),
                              tags$tr(
                                tags$td(width = "30%", tags$div(style=localStyle,"colour:")),
-                               tags$td(width = "70%", selectInput("lineCol", NULL, list("black","white"),selected="black",selectize=FALSE))
+                               tags$td(width = "30%", textInput("lineCol", NULL, value="black",updateOn='blur')),
+                               tags$td(width = "40%", tags$div(style='margin-right:50px;',""))
                              )
                   )
         ),
@@ -76,7 +78,8 @@ ui <- fluidPage(
                              ),
                              tags$tr(
                                tags$td(width = "30%", tags$div(style=localStyle,"colour:")),
-                               tags$td(width = "70%", selectInput("rlineCol", NULL, list("black","white"),selected="black",selectize=FALSE))
+                               tags$td(width = "30%", textInput("rlineCol", NULL, value="black",updateOn='blur')),
+                               tags$td(width = "40%", tags$div(style='margin-right:50px;',""))
                              ),
                              tags$tr(
                                tags$td(width = "30%", tags$div(style=localStyle,"offset:")),
@@ -91,7 +94,12 @@ ui <- fluidPage(
                                          tags$td(width = "70%", checkboxInput("glineOn", NULL, value = TRUE))
                                        ),
                                        tags$tr(
-                                         tags$td(width = "30%", tags$div(style=localStyle,"offset:")),
+                                         tags$td(width = "30%", tags$div(style=localStyle,"colour:")),
+                                         tags$td(width = "30%", textInput("glineCol", NULL, value="black",updateOn='blur')),
+                                         tags$td(width = "40%", tags$div(style='margin-right:50px;',""))
+                                       ),
+                                       tags$tr(
+                                         tags$td(width = "30%", tags$div(style=localStyle,"separation:")),
                                          tags$td(width = "70%", numericInput("glineOffset", NULL, min = 0, max = 1, step = 0.05, value = 0.2))
                                        )
                             )
@@ -107,6 +115,7 @@ ui <- fluidPage(
     
     # Main panel for displaying outputs ----
     mainPanel(
+      style = paste("background: ",'#fff',';','width:523px;height:403px;',"margin: 0px;margin-top:12px;padding: 0px;border-radius:0px;"),
       
       # Output: 
       htmlOutput(outputId = "linesPlot"),

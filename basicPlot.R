@@ -9,9 +9,12 @@ initHTML<-function(gsize=400,aspect=1.3,fontScale=1.5,xlim=c(0,1),ylim=c(0,1)) {
                    dotSize=gsize/100*fontScale*1.25,
                    plotArea=c(0,0,1,1)
   )
+
   braw.env$plotLimits<<-plotLimits(xlim,ylim,returnValue=TRUE)
 }
 
+#' @export
+setBrawEnv<-function(which,value)   assign(which,value,braw.env)
 
 # 
 #' @export
