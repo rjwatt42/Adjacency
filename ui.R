@@ -109,8 +109,8 @@ ui <- fluidPage(
     mainPanel(
       
       # Output: 
-      plotOutput(outputId = "linesPlot"),
-      width=9
+      htmlOutput(outputId = "linesPlot"),
+      width=5
       
     )
   )

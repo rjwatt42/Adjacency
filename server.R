@@ -16,12 +16,13 @@ server <- function(input, output) {
     lineWidth<-max(0.015,input$lineWidth)
     rlineLength<-max(0.015,input$rlineLength)
     rlineWidth<-max(0.015,input$rlineWidth)
-    g<-makeLines(lineLength=lineLength,lineWidth=lineWidth,lineCol=input$lineCol,
+    g<-makeLines(useHTML=TRUE,
+                 lineLength=lineLength,lineWidth=lineWidth,lineCol=input$lineCol,
                  guideLines=input$glineOn,guideOffset=input$glineOffset,
                  rLines=input$rlineOn,
                  rlineLength=rlineLength,rlineWidth=rlineWidth,rlineCol=input$rlineCol,
                  rlineMargin=0.07+rlineWidth+lineWidth,rlineOffset=input$rlineOffset)
-    output$linesPlot <- renderPlot(g)
+    output$linesPlot <- renderUI(HTML(g))
   })
   
 }

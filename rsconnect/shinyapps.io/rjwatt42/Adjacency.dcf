@@ -5,7 +5,7 @@ account: rjwatt42
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 16155407
-bundleId: 11224842
+bundleId: 11224943
 url: https://rjwatt42.shinyapps.io/Adjacency/
 version: 1
 asMultiple: FALSE
