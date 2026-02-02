@@ -1,20 +1,22 @@
 
-source('R/basicPlot.R')
-source('R/showHTML.R')
+source('basicPlot.R')
+source('../BrawPackDevelopment/R/showHTML.R')
 
 initHTML(gsize=400,xlim=c(-1,1),ylim=c(-1,1))
 
 # variables
 background<-'#888'
 
-nlines<-80
-lineRadius<-0.075
+nlines<-1400
+lineRadius<-0.01
 lineSize<-1
 lineFill<-'#000'
-lineLength<-0.1
+lineLength<-0.01
+
+
 
 rlineShow<-TRUE
-nrlines<-20
+nrlines<-200
 rlineSize<-lineSize
 rlineFill<-'#000'
 rlineLength<-lineLength

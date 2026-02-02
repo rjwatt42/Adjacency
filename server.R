@@ -11,7 +11,9 @@ server <- function(input, output) {
   # 
   observeEvent({c(input$New,input$lineLength,input$lineWidth,input$lineCol,
                   input$glineOn,input$glineOffset,input$glineCol,
-                  input$rlineOn,input$rlineLength,input$rlineWidth,input$rlineCol,input$rlineOffset)}, {
+                  input$rlineOn,input$rlineLength,input$rlineWidth,input$rlineCol,input$rlineOffset)
+    }, 
+    {
     lineLength<-max(0.015,input$lineLength)
     lineWidth<-max(0.005,input$lineWidth)
     rlineLength<-max(0.015,input$rlineLength)
