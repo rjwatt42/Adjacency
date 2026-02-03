@@ -42,18 +42,18 @@ ui <- fluidPage(
     
     # Sidebar panel for inputs ----
     sidebarPanel(
-      style = paste("background: ",'#aaa',';width:200px',";margin-left: 0px;margin-right: -21px;margin-top: 12px;padding-right: -21px;border-radius:0px;"),
+      style = paste("background: ",'#aaa',';width:200px;height:480px',";margin-left: 0px;margin-right: -21px;margin-top: 12px;padding-right: -21px;border-radius:0px;"),
       # Input: 
       verticalLayout(
         wellPanel(h4("Regular Lines"),
                   tags$table(width="100%",class="MyTable",
                              tags$tr(
                                tags$td(width = "30%", tags$div(style=localStyle,"length:")),
-                               tags$td(width = "70%", numericInput("lineLength", NULL, min = 0, max = 1, step = 0.05, value = 0.2))
+                               tags$td(width = "70%", numericInput("lineLength", NULL, min = 0, max = 5, step = 0.2, value = 1))
                              ),
                              tags$tr(
                                tags$td(width = "30%", tags$div(style=localStyle,"width:")),
-                               tags$td(width = "70%", numericInput("lineWidth", NULL, min = 0, max = 1, step = 0.01, value = 0.01))
+                               tags$td(width = "70%", numericInput("lineWidth", NULL, min = 0, max = 1, step = 0.1, value = 0.05))
                              ),
                              tags$tr(
                                tags$td(width = "30%", tags$div(style=localStyle,"colour:")),
@@ -70,11 +70,11 @@ ui <- fluidPage(
                              ),
                              tags$tr(
                                tags$td(width = "30%", tags$div(style=localStyle,"length:")),
-                               tags$td(width = "70%", numericInput("rlineLength", NULL, min = 0, max = 1, step = 0.05, value = 0.2))
+                               tags$td(width = "70%", numericInput("rlineLength", NULL, min = 0, max = 1, step = 0.2, value = 1))
                              ),
                              tags$tr(
                                tags$td(width = "30%", tags$div(style=localStyle,"width:")),
-                               tags$td(width = "70%", numericInput("rlineWidth", NULL, min = 0, max = 1, step = 0.01, value = 0.01))
+                               tags$td(width = "70%", numericInput("rlineWidth", NULL, min = 0, max = 1, step = 0.01, value = 0.05))
                              ),
                              tags$tr(
                                tags$td(width = "30%", tags$div(style=localStyle,"colour:")),
@@ -100,7 +100,7 @@ ui <- fluidPage(
                                        ),
                                        tags$tr(
                                          tags$td(width = "30%", tags$div(style=localStyle,"separation:")),
-                                         tags$td(width = "70%", numericInput("glineOffset", NULL, min = 0, max = 1, step = 0.05, value = 0.2))
+                                         tags$td(width = "70%", numericInput("glineOffset", NULL, min = 0, max = 1, step = 0.2, value = 1))
                                        )
                             )
                   ),
@@ -115,7 +115,7 @@ ui <- fluidPage(
     
     # Main panel for displaying outputs ----
     mainPanel(
-      style = paste("background: ",'#fff',';','width:523px;height:403px;',"margin: 0px;margin-top:12px;padding: 0px;border-radius:0px;"),
+      style = paste("background: ",'#fff',';','width:480px;height:480px;',"margin: 0px;margin-top:12px;padding: 0px;border-radius:0px;"),
       
       # Output: 
       htmlOutput(outputId = "linesPlot"),
